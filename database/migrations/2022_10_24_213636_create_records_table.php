@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('ip');
             $table->string('browser');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
