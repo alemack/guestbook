@@ -8,6 +8,7 @@ use App\Http\Controllers\Record\StoreController;
 use App\Http\Controllers\Record\CreateController;
 use App\Http\Controllers\Record\UpdateController;
 use App\Http\Controllers\Record\DestroyController;
+use App\Http\Middleware\XSS;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['namespace' => 'Record'], function() {
+Route::group(['namespace' => 'Record', 'middleware'=>'XSS'], function() {
 Route::get('/records', [IndexController::class, '__invoke'])->name('record.index');
 
 Route::get('/records/create', [CreateController::class, '__invoke'])->name('record.create');
