@@ -1,6 +1,7 @@
 @extends('layouts.header')
 @section('content')
 <form action="{{route('record.store')}}" method="post">
+    {{-- {!! csrf_field() !!} --}}
     <!-- чтобы был хоть какой-то уровень защиты нужен @csrf -->
     @csrf
   <div class="form-group">
@@ -37,7 +38,18 @@
     @error('text')
     <p class="text-danger">{{$message}}</p>
     @enderror
+
   </div>
+  <div class="form-group">
+    <label for="captcha"></label>
+    <p>{!!captcha_img()!!}</p>
+    <img src="{{Captcha::src('default')}}" alt="captcha" class="captcha-img" data-refresh-config="default"><a href="#" id="refresh"><span class="glyphicon glyphicon-refresh"></span></a></p>
+</div>
+<div class="form-group">
+    <label>Капча</label>
+    <input class="form-control" type="text" name="captcha"/>
+</div>
+
   <button type="submit" class="btn btn-primary">Create</button>
 </form>
 @endsection
