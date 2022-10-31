@@ -7,6 +7,8 @@ use Mews\Captcha\Captcha;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use function PHPSTORM_META\type;
+
 class IndexController extends Controller
 {
     public function __invoke()
@@ -38,6 +40,14 @@ class IndexController extends Controller
         // $form .= '<p><button type="submit" name="check">Check</button></p>';
         // $form .= '</form>';
         // return $form;
+
+        // $a = captcha_src();
+        // print($a);
+        // dd(gettype($a));
+
+        // $im = captcha_img();
+        // imagejpeg($im);
+        // dd('2');
 
 
 

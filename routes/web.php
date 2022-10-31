@@ -38,4 +38,3 @@ Route::patch('/records/{record}', [UpdateController::class, '__invoke'])->name('
 
 Route::delete('/records/{record}', [DestroyController::class, '__invoke'])->name('record.delete');
 });
-
