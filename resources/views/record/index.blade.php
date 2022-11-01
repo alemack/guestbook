@@ -18,7 +18,7 @@
               <td>{{$record->user_name}}</td>
               <td>{{$record->email}}</td>
               <td>{{$record->homepage}}</td>
-              <td>{{$record->created_at}}</td>
+              <td>{{date('d.m.Y', (strtotime(substr($record->created_at, 0, 10))));}}</td>
               <td> <textarea name="" id="" cols="20" rows="1">{{$record->text}}</textarea></td>
               <td><a href="{{route('record.show', $record->id)}}"><button class="btn btn-primary">edit</button></a></td>
               <td><button class="btn btn-danger">block</button></td>
@@ -28,4 +28,14 @@
         {{-- <div><a href="{{route('record.show', $record->id)}}">{{$record->id}}. {{$record->email}}</a></div> --}}
         {{-- @endforeach --}}
     </div>
+
+    <script src='tablesort.min.js'></script>
+
+<!-- Include sort types you need -->
+<script src='tablesort.number.js'></script>
+<script src='tablesort.date.js'></script>
+
+<script>
+  new Tablesort(document.getElementById('table-id'));
+</script>
 @endsection
