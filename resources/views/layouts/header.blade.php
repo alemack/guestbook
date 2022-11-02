@@ -49,17 +49,61 @@
     <title>Records</title>
 </head>
 <body class="container">
-    <div class="row">
+    <header class="p-3 bg-dark text-white">
+        <?php
+            // // vendor connect
+            // require_once '../news/vendor/autoload.php';
+
+
+            // session_start();
+            // // news api conn
+            // use jcobhams\NewsApi\NewsApi;
+            // include './config/api_key.php';
+            // $newsapi = new NewsApi($api_key);
+        ?>
+
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li>
+                        <a href="{{route('record.index')}}"> <button type="submit" class="me-2 btn-outline-light btn btn-dark"
+                    title="home page"
+                    name="science">Home</button></a>
+                </ul>
+
+
+            {{-- <form action="../search/word_search.php" method="POST">
+                <div class="text-end">
+                    <button type="submit" name="word_search" class="btn btn-outline-light me-2">Поиск</button>
+                </div>
+            </form> --}}
+
+
+            <div class="text-end">
+                {{-- <?php if($_SESSION["status"] == 'true'): ?> --}}
+                    {{-- <button type="submit" name="acc" class="btn btn-warning">Кабинет пользователя</button> --}}
+                {{-- <?php else: ?> --}}
+                    <a class="mt-5" href="{{route('home')}}"><button type="submit" name="auth" class="btn btn-outline-light me-2">Login</button></a>
+                    {{-- <button type="submit" name="auth" class="btn btn-outline-light me-2">Login</button> --}}
+                    {{-- <button type="submit" name="reg" class="btn btn-warning">Регистрация</button> --}}
+                {{-- <?php endif; ?> --}}
+            </div>
+          </div>
+        </div>
+      </header>
+
+    {{-- <div class="row">
         <nav>
             <ul>
                 <li>
                     <a href="{{route('record.index')}}">Home</a>
-                    {{-- <a href="{{route('login.index')}}">Login</a> --}}
-                    {{-- <a href="{{route('reg.index')}}">Registration</a> --}}
+                    <a class="mt-5" href="{{route('home')}}">Login</a>
+                    <a href="{{route('reg.index')}}">Registration</a>
                 </li>
             </ul>
         </nav>
-    </div>
+    </div> --}}
     @yield('content')
 
 

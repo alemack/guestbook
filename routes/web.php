@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Middleware\XSS;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MyControl;
 use App\Http\Controllers\Record\EditController;
 use App\Http\Controllers\Record\ShowController;
 use App\Http\Controllers\Record\IndexController;
@@ -8,7 +12,6 @@ use App\Http\Controllers\Record\StoreController;
 use App\Http\Controllers\Record\CreateController;
 use App\Http\Controllers\Record\UpdateController;
 use App\Http\Controllers\Record\DestroyController;
-use App\Http\Middleware\XSS;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +24,17 @@ use App\Http\Middleware\XSS;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+// Auth::routes();
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+// Route::get('/login', function () {
+//     return 's';
+// });
+
+// Route::get('/login', [HomeController::class, 'index'])->name('login.index');
 
 Route::group(['namespace' => 'Record', 'middleware'=>'XSS'], function() {
 Route::get('/records', [IndexController::class, '__invoke'])->name('record.index');
@@ -38,3 +49,11 @@ Route::patch('/records/{record}', [UpdateController::class, '__invoke'])->name('
 
 Route::delete('/records/{record}', [DestroyController::class, '__invoke'])->name('record.delete');
 });
+
+// Route::get('/my', [MyControl::class, '__invoke']);
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

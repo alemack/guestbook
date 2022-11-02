@@ -1,8 +1,8 @@
 @extends('layouts.header')
 @section('content')
-    <div>
-        <a href="{{route('record.create')}}" class="btn btn-success mb-3">Add record</a>
-    </div>
+<div>
+    <a href="{{route('record.create')}}" class="btn btn-success mb-3 mt-3">Add record</a>
+</div>
     <div>
         <table style="width:100%" id="table_id" class="table">
             <thead>

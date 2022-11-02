@@ -14,7 +14,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         $records = Record::all();
-        $records = Record::paginate(10);
+        $records = Record::paginate(25);
         return view('record.index', compact('records'));
     }
 }
