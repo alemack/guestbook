@@ -24,8 +24,11 @@
               <td>{{date('d.m.Y H:i', (strtotime(substr($record->created_at, 0, 16))));}}</td>
               {{-- <td>{{$record->created_at}}</td> --}}
               <td> <textarea name="" id="" cols="20" rows="1">{{$record->text}}</textarea></td>
-              <td><a href="{{route('record.show', $record->id)}}"><button class="btn btn-primary">edit</button></a></td>
-              <td><button class="btn btn-danger">block</button></td>
+              @can('view', auth()->user())
+                    <td><a href="{{route('record.show', $record->id)}}"><button class="btn btn-primary">edit</button></a></td>
+                    <td><a href=""><button class="btn btn-danger">block</button></a></td>
+              @endcan
+              {{-- <td><button class="btn btn-danger">block</button></td> --}}
             </tr>
             @endforeach
 
