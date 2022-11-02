@@ -4,7 +4,6 @@
         <a href="{{route('record.create')}}" class="btn btn-success mb-3">Add record</a>
     </div>
     <div>
-        {{-- @foreach ($records as $record) --}}
         <table style="width:100%" id="table_id" class="table">
             <thead>
                 <tr>
@@ -22,7 +21,8 @@
               <td>{{$record->user_name}}</td>
               <td>{{$record->email}}</td>
               <td>{{$record->homepage}}</td>
-              <td>{{date('d.m.Y', (strtotime(substr($record->created_at, 0, 10))));}}</td>
+              <td>{{date('d.m.Y H:i', (strtotime(substr($record->created_at, 0, 16))));}}</td>
+              {{-- <td>{{$record->created_at}}</td> --}}
               <td> <textarea name="" id="" cols="20" rows="1">{{$record->text}}</textarea></td>
               <td><a href="{{route('record.show', $record->id)}}"><button class="btn btn-primary">edit</button></a></td>
               <td><button class="btn btn-danger">block</button></td>
