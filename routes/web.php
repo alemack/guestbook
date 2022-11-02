@@ -4,7 +4,6 @@ use App\Http\Middleware\XSS;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MyControl;
 use App\Http\Controllers\Record\EditController;
 use App\Http\Controllers\Record\ShowController;
 use App\Http\Controllers\Record\IndexController;
@@ -54,6 +53,6 @@ Route::delete('/records/{record}', [DestroyController::class, '__invoke'])->name
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
