@@ -9,7 +9,7 @@
     <style>
         /* table, th, td {
           border:1px solid black;
-        } */
+        }
         th[role=columnheader]:not(.no-sort) {
         cursor: pointer;
         }
@@ -42,7 +42,7 @@
         th[role=columnheader]:not(.no-sort):hover:after {
             visibility: visible;
             opacity: 1;
-        }
+        } */
 
 
         </style>

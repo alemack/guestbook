@@ -28,27 +28,33 @@
               <td><button class="btn btn-danger">block</button></td>
             </tr>
             @endforeach
+
+            {{-- <div class="mt-3">
+                {{ $records->links() }}
+            </div> --}}
           </table>
 
 
-          {{-- src='/node_modules/tablesort/dist/tablesort.min.js' --}}
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.0.2/tablesort.min.js'></script>
-        <!-- Include sort types you need -->
-        {{-- <script  src="/node_modules/tablesort/dist/tablesort.min.js"></script>
-
-        <script src="/node_modules/tablesort/src/tablesort.js"></script> --}}
-
-        {{-- <script src="../../js/tablesort.min.js"></script> --}}
-
-
-        {{-- <script src='/node_modules/tablesort/src/sorts/tablesort.number.js'></script>
-        <script src='/node_modules/tablesort/src/sorts/tablesort.date.js'></script> --}}
-
-        <script>
-        new Tablesort(document.getElementById('table_id'));
-        </script>
+    </div>
+    <div>
+        {{ $records->links() }}
     </div>
 
 
+    {{-- src='/node_modules/tablesort/dist/tablesort.min.js' --}}
+    {{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.0.2/tablesort.min.js'></script> --}}
+    <!-- Include sort types you need -->
+    {{-- <script  src="/node_modules/tablesort/dist/tablesort.min.js"></script>
 
+    <script src="/node_modules/tablesort/src/tablesort.js"></script> --}}
+
+    {{-- <script src="../../js/tablesort.min.js"></script> --}}
+
+
+    {{-- <script src='/node_modules/tablesort/src/sorts/tablesort.number.js'></script>
+    <script src='/node_modules/tablesort/src/sorts/tablesort.date.js'></script> --}}
+{{--
+    <script>
+    new Tablesort(document.getElementById('table_id'));
+    </script> --}}
 @endsection
