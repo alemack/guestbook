@@ -26,15 +26,6 @@ use App\Http\Controllers\Record\DestroyController;
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-// Auth::routes();
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-// Route::get('/login', function () {
-//     return 's';
-// });
-
-// Route::get('/login', [HomeController::class, 'index'])->name('login.index');
-
 Route::group(['namespace' => 'Record', 'middleware'=>'XSS'], function() {
 Route::get('/records', [IndexController::class, '__invoke'])->name('record.index');
 
@@ -48,11 +39,3 @@ Route::patch('/records/{record}', [UpdateController::class, '__invoke'])->name('
 
 Route::delete('/records/{record}', [DestroyController::class, '__invoke'])->name('record.delete');
 });
-
-// Route::get('/my', [MyControl::class, '__invoke']);
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

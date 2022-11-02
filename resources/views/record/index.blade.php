@@ -26,7 +26,12 @@
               <td> <textarea name="" id="" cols="20" rows="1">{{$record->text}}</textarea></td>
               @can('view', auth()->user())
                     <td><a href="{{route('record.show', $record->id)}}"><button class="btn btn-primary">edit</button></a></td>
-                    <td><a href=""><button class="btn btn-danger">block</button></a></td>
+                    <form action="{{route('record.delete', $record->id)}}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <td><input type="submit" value="Delete" class="btn btn-danger"></td>
+                    </form>
+                    {{-- <td><a href=""><button class="btn btn-danger">block</button></a></td> --}}
               @endcan
               {{-- <td><button class="btn btn-danger">block</button></td> --}}
             </tr>
