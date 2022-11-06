@@ -71,13 +71,13 @@
                     title="home page"
                     name="home">Home</button></a>
                     </li>
-                    {{-- @can('view', auth()->user()) --}}
+                    @can('view', auth()->user())
                         <li>
                             <a href="{{route('record.block')}}"> <button type="submit" class="me-2 btn-outline-light btn btn-dark"
                         title="block page"
                         name="block">Blocklist</button></a>
                         </li>
-                    {{-- @endcan --}}
+                    @endcan
                 </ul>
 
 

@@ -12,6 +12,7 @@
                     <th>Email</th>
                     <th data-sort-method='none'>Homepage</th>
                     <th data-sort-method='date'>Create</th>
+                    <th data-sort-method='date'>Update</th>
                     <th data-sort-method='none'>Text</th>
                   </tr>
             </thead>
@@ -22,10 +23,16 @@
               <td>{{$record->email}}</td>
               <td>{{$record->homepage}}</td>
               <td>{{date('d.m.Y H:i', (strtotime(substr($record->created_at, 0, 16))));}}</td>
+              <td>{{date('d.m.Y H:i', (strtotime(substr($record->updated_at, 0, 16))));}}</td>
               {{-- <td>{{$record->created_at}}</td> --}}
               <td> <textarea name="" id="" cols="20" rows="1">{{$record->text}}</textarea></td>
               @can('view', auth()->user())
-                    <td><a href="{{route('record.show', $record->id)}}"><button class="btn btn-primary">edit</button></a></td>
+              <form action="{{route('record.edit', $record->id)}}" method="GET">
+                @csrf
+                {{-- @method('get') --}}
+                <td><button class="btn btn-primary">Edit</button></td>
+            </form>
+
                     <form action="{{route('record.delete', $record->id)}}" method="POST">
                         @csrf
                         @method('delete')

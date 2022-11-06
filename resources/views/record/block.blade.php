@@ -24,7 +24,11 @@
           {{-- <td>{{$record->created_at}}</td> --}}
           <td> <textarea name="" id="" cols="20" rows="1">{{$record->text}}</textarea></td>
 
-                <td><a href="{{route('record.show', $record->id)}}"><button class="btn btn-primary">edit</button></a></td>
+          {{-- <form action="{{route('record.edit', $record->id)}}" method="GET">
+            @csrf
+            @method('get')
+            <td><button class="btn btn-primary">Edit</button></td>
+        </form> --}}
                 <form action="{{route('record.restore', $record->id)}}" method="POST">
                     @csrf
                     {{-- @method('delete') --}}
