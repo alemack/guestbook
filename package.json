@@ -1,9 +1,9 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
+        "dev": "vite",
         "build": "vite build",
-        "prod": "npm run production",
+        "prod": "npm run build",
         "postinstall": "npm run prod"
     },
     "devDependencies": {
