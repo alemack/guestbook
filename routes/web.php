@@ -4,6 +4,7 @@ use App\Http\Middleware\XSS;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Record\BlockedController;
 use App\Http\Controllers\Record\EditController;
 use App\Http\Controllers\Record\ShowController;
 use App\Http\Controllers\Record\IndexController;
@@ -28,6 +29,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['namespace' => 'Record', 'middleware'=>'XSS'], function() {
 Route::get('/records', [IndexController::class, '__invoke'])->name('record.index');
+Route::get('/records/blocked', [BlockedController::class, '__invoke'])->name('record.block');
 
 Route::get('/records/create', [CreateController::class, '__invoke'])->name('record.create');
 Route::post('/records', [StoreController::class, '__invoke'])->name('record.store');

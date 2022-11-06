@@ -69,7 +69,15 @@
                     <li>
                         <a href="{{route('record.index')}}"> <button type="submit" class="me-2 btn-outline-light btn btn-dark"
                     title="home page"
-                    name="science">Home</button></a>
+                    name="home">Home</button></a>
+                    </li>
+                    {{-- @can('view', auth()->user()) --}}
+                        <li>
+                            <a href="{{route('record.block')}}"> <button type="submit" class="me-2 btn-outline-light btn btn-dark"
+                        title="block page"
+                        name="block">Blocklist</button></a>
+                        </li>
+                    {{-- @endcan --}}
                 </ul>
 
 
@@ -81,13 +89,10 @@
 
 
             <div class="text-end">
-                {{-- <?php if($_SESSION["status"] == 'true'): ?> --}}
-                    {{-- <button type="submit" name="acc" class="btn btn-warning">Кабинет пользователя</button> --}}
-                {{-- <?php else: ?> --}}
-                    <a class="mt-5" href="{{route('home')}}"><button type="submit" name="auth" class="btn btn-outline-light me-2">Login</button></a>
-                    {{-- <button type="submit" name="auth" class="btn btn-outline-light me-2">Login</button> --}}
-                    {{-- <button type="submit" name="reg" class="btn btn-warning">Регистрация</button> --}}
-                {{-- <?php endif; ?> --}}
+                <a class="mt-5" href="{{route('home')}}"><button type="submit" name="auth" class="btn btn-outline-light me-2">Login</button></a>
+
+
+
             </div>
           </div>
         </div>

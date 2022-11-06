@@ -29,7 +29,7 @@
                     <form action="{{route('record.delete', $record->id)}}" method="POST">
                         @csrf
                         @method('delete')
-                        <td><input type="submit" value="Delete" class="btn btn-danger"></td>
+                        <td><input type="submit" value="Block" class="btn btn-danger"></td>
                     </form>
                     {{-- <td><a href=""><button class="btn btn-danger">block</button></a></td> --}}
               @endcan
