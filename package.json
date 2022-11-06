@@ -3,7 +3,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "prod": "parcel build src/index.html",
+        "prod": "npm build src/index.html",
         "postinstall": "npm run prod"
     },
     "devDependencies": {
