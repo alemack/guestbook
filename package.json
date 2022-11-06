@@ -1,7 +1,4 @@
 {
-    "engines": {
-        "node": "16.x"
-      },
     "private": true,
     "scripts": {
         "dev": "vite",
@@ -20,5 +17,9 @@
     },
     "dependencies": {
         "tablesort": "^5.3.0"
-    }
+    },
+    "engines": {
+        "node": "16.13.x",
+        "npm": "8.1.x"
+      }
 }
