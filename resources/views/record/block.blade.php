@@ -25,9 +25,9 @@
           <td> <textarea name="" id="" cols="20" rows="1">{{$record->text}}</textarea></td>
 
                 <td><a href="{{route('record.show', $record->id)}}"><button class="btn btn-primary">edit</button></a></td>
-                <form action="{{route('record.delete', $record->id)}}" method="POST">
+                <form action="{{route('record.restore', $record->id)}}" method="POST">
                     @csrf
-                    @method('delete')
+                    {{-- @method('delete') --}}
                     <td><input type="submit" value="Unblock" class="btn btn-success"></td>
                 </form>
                 {{-- <td><a href=""><button class="btn btn-danger">block</button></a></td> --}}

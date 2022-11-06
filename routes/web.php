@@ -12,6 +12,7 @@ use App\Http\Controllers\Record\StoreController;
 use App\Http\Controllers\Record\CreateController;
 use App\Http\Controllers\Record\UpdateController;
 use App\Http\Controllers\Record\DestroyController;
+use App\Http\Controllers\Record\RestoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,5 @@ Route::get('/records/{record}/edit', [EditController::class, '__invoke'])->name(
 Route::patch('/records/{record}', [UpdateController::class, '__invoke'])->name('record.update');
 
 Route::delete('/records/{record}', [DestroyController::class, '__invoke'])->name('record.delete');
+Route::post('records/{record}', [RestoreController::class, '__invoke'])->name('record.restore');
 });
