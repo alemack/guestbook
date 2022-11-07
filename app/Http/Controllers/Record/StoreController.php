@@ -10,7 +10,7 @@ use Jenssegers\Agent\Facades\Agent;
 
 use function PHPSTORM_META\type;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
@@ -22,7 +22,7 @@ class StoreController extends Controller
 
         $data += ['ip'=>$ip, 'browser'=>$browser.' '.$browserVersion];
 
-        Record::create($data);
+        $record = $this->service->store($data);
 
         return redirect()->route('record.index');
     }
