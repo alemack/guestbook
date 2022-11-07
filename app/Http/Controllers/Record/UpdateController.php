@@ -5,29 +5,19 @@ namespace App\Http\Controllers\Record;
 use App\Models\Record;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateRequest;
 
 class UpdateController extends Controller
 {
-    public function __invoke(Record $record)
+    public function __invoke(UpdateRequest $request, Record $record)
     {
-        $data = request()->validate([
-            'user_name'=>'string|required',
-            'email'=>'email',
-            'homepage'=>'string',
-            'text'=>'string|required',
-            'ip'=>'',
-            'browser'=>'',
-        ]);
+        $data = $request->validated();
 
-
-
-            $record->update($data);
-
+        $record->update($data);
 
         //принудительное обновление
         $record->fresh();
-        return redirect()->route('record.index');
 
-        // dd($data);
+        return redirect()->route('record.index');
     }
 }

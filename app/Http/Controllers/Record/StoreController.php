@@ -15,7 +15,6 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        // dd($data);
 
         $ip = request()->ip();
         $browser = Agent::browser();
@@ -24,6 +23,7 @@ class StoreController extends Controller
         $data += ['ip'=>$ip, 'browser'=>$browser.' '.$browserVersion];
 
         Record::create($data);
+
         return redirect()->route('record.index');
     }
 }
