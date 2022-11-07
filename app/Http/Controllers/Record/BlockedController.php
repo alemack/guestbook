@@ -11,7 +11,6 @@ class BlockedController extends Controller
     public function __invoke()
     {
         $records = Record::onlyTrashed()->paginate(10);
-        // $records = Record::paginate(25);
         return view('record.block', compact('records'));
     }
 }

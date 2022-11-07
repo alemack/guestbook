@@ -13,7 +13,6 @@ class DestroyController extends Controller
     public function __invoke(Record $record)
     {
         $record->delete();
-
         return redirect()->route('record.index');
     }
 }
