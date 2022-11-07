@@ -27,4 +27,26 @@ php artisan serve
 
 ### Screechshots
 
+Форма регистрации
+<img src="img/reg.jpg">
+
+Форма авторизации
+<img src="img/auth.jpg">
+
+Кабинет авторизованного пользователя
+<img src="img/userAcc.jpg">
+
+Страница с записями
 <img src="img/records.jpg">
+
+Страница с записями для админа
+<img src="img/recordsForAdmin.jpg">
+
+Добавление записи
+<img src="img/create.jpg">
+
+Редактирование записи
+<img src="img/edit.jpg">
+
+Страница с заблокированными записями
+<img src="img/blocklist.jpg">
