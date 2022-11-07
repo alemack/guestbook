@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Record;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\record\StoreRequest;
 use App\Models\Record;
 use Illuminate\Http\Request;
 use Jenssegers\Agent\Facades\Agent;
@@ -11,23 +12,16 @@ use function PHPSTORM_META\type;
 
 class StoreController extends Controller
 {
-    public function __invoke()
+    public function __invoke(StoreRequest $request)
     {
-        $data = request()->validate([
-            'user_name'=>'string|required',
-            'email'=>'email',
-            'homepage'=>'string',
-            'text'=>'string|required',
-            'ip'=>'',
-            'browser'=>'',
-
-        ]);
+        $data = $request->validated();
+        // dd($data);
 
         $ip = request()->ip();
         $browser = Agent::browser();
-        $version = Agent::version($browser);
+        $browserVersion = Agent::version($browser);
 
-        $data += ['ip'=>$ip, 'browser'=>$browser.' '.$version];
+        $data += ['ip'=>$ip, 'browser'=>$browser.' '.$browserVersion];
 
         Record::create($data);
         return redirect()->route('record.index');
