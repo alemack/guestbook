@@ -1,9 +1,7 @@
 @extends('layouts.header')
 @section('content')
 <form action="{{route('record.update', $record->id)}}" method="post">
-    <!-- чтобы был хоть какой-то уровень защиты нужен @csrf -->
     @csrf
-    <!-- для изменений обязательно указать метода path -->
     @method('patch')
   <div class="form-group">
     <label for="user_name">User name</label>
@@ -21,10 +19,6 @@
     <label for="text">Text</label>
     <textarea type="text" name="text" class="form-control" id="text"  placeholder="Text">{{$record->text}}</textarea>
   </div>
-
-
-
-
   <button type="submit" class="btn btn-primary">Update</button>
 </form>
 @endsection

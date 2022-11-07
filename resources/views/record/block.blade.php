@@ -21,31 +21,14 @@
           <td>{{$record->homepage}}</td>
           <td>{{date('d.m.Y H:i', (strtotime(substr($record->created_at, 0, 16))));}}</td>
           <td>{{date('d.m.Y H:i', (strtotime(substr($record->deleted_at, 0, 16))));}}</td>
-          {{-- <td>{{$record->created_at}}</td> --}}
           <td> <textarea name="" id="" cols="20" rows="1">{{$record->text}}</textarea></td>
-
-          {{-- <form action="{{route('record.edit', $record->id)}}" method="GET">
-            @csrf
-            @method('get')
-            <td><button class="btn btn-primary">Edit</button></td>
-        </form> --}}
-                <form action="{{route('record.restore', $record->id)}}" method="POST">
-                    @csrf
-                    {{-- @method('delete') --}}
-                    <td><input type="submit" value="Unblock" class="btn btn-success"></td>
-                </form>
-                {{-- <td><a href=""><button class="btn btn-danger">block</button></a></td> --}}
-
-          {{-- <td><button class="btn btn-danger">block</button></td> --}}
+            <form action="{{route('record.restore', $record->id)}}" method="POST">
+                @csrf
+                <td><input type="submit" value="Unblock" class="btn btn-success"></td>
+            </form>
         </tr>
         @endforeach
-
-        {{-- <div class="mt-3">
-            {{ $records->links() }}
-        </div> --}}
       </table>
-
-
 </div>
 <div>
     {{ $records->links() }}
